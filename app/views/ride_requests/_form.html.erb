@@ -1,0 +1,42 @@
+<%= form_with(model: ride_request) do |form| %>
+  <% if ride_request.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(ride_request.errors.count, "error") %> prohibited this ride_request from being saved:</h2>
+
+      <ul>
+        <% ride_request.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :pickup_time, style: "display: block" %>
+    <%= form.datetime_field :pickup_time %>
+  </div>
+
+  <div>
+    <%= form.label :location, style: "display: block" %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div>
+    <%= form.label :notes, style: "display: block" %>
+    <%= form.textarea :notes %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
